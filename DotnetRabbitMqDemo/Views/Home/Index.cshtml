@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://codewithmukesh.com/blog/rabbitmq-with-aspnet-core-microservice/">Source info</a>.</p>
+</div>
+
+@model Shared.Models.Ticket
+
+@{
+    ViewData["Title"] = "Book Ticket";
+    var tempval = TempData["Message"];
+}
+
+<h1>Book Ticket</h1>
+
+<form asp-controller="Home" asp-action="Index" method="post">
+  <div class="form-group">
+        <label for="UserName">UserName</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username" name="UserName">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your Username with anyone else.</small>
+  </div>
+  <div class="form-group">
+        <label for="Boarding">Boarding</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Boarding" name="Boarding">
+  </div>
+    <div class="form-group">
+        <label for="Destination">Destination</label>
+        <input type="text" class="form-control" id="exampleInputPassword21" placeholder="Enter Destination" name="Destination">
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    @if (tempval != null)
+    {
+        <label class="alert-info">@tempval.ToString()</label>
+    }
+    
+</form>
